@@ -25,7 +25,6 @@ resource "aws_security_group" "webapp_http_inbound_sg" {
   tags = local.common_tags
 }
 
-
 resource "aws_security_group" "webapp_outbound_sg" {
   name        = "${local.name_prefix}-webapp-outbound"
   description = "Allow outbound connections"
