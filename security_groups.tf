@@ -3,7 +3,7 @@
 ##################################################################################
 
 resource "aws_security_group" "webapp_sg" {
-  name        = "Webapp Security Group"
+  name        = "${local.name_prefix}-Security-group-main"
   description = "Ingress and Egress are outside"
   vpc_id = data.tfe_outputs.networking.nonsensitive_values.vpc_id
   tags = local.common_tags
