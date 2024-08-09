@@ -38,8 +38,7 @@ resource "aws_instance" "main" {
   instance_type        = var.instance_type
   subnet_id            = data.tfe_outputs.networking.nonsensitive_values.public_subnets[count.index]
   vpc_security_group_ids = [
-    aws_security_group.webapp_http_inbound_sg.id,
-    aws_security_group.webapp_outbound_sg.id,
+    aws_security_group.webapp_sg.id
   ]
 
   key_name = module.ssh_keys.key_pair_name
@@ -65,7 +64,7 @@ resource "aws_lb" "main" {
   name               = "${local.name_prefix}-webapp"
   internal           = false
   load_balancer_type = "application"
-  security_groups    = [aws_security_group.webapp_http_inbound_sg.id]
+  security_groups    = [aws_security_group.webapp_sg.id]
   subnets            = data.tfe_outputs.networking.nonsensitive_values.public_subnets
 
   enable_deletion_protection = false
