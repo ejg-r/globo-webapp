@@ -28,6 +28,7 @@ resource "aws_vpc_security_group_ingress_rule" "webapp_https_inbound" {
   ip_protocol = "tcp"
   to_port     = 443
 
+
   tags = local.common_tags
 }
 
