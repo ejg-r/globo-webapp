@@ -48,6 +48,12 @@ variable "playbook_repository" {
   description = "(Required) URI of Ansible playbook"
 }
 
+variable "private_key" {
+  description = "SSH private key to access the private repository"
+  default     = file("~/.ssh/id_rsa")
+  sensitive   = true
+}
+
 #TFE Variables
 
 variable "tfe_organization" {
