@@ -50,7 +50,7 @@ variable "playbook_repository" {
 
 variable "private_key" {
   description = "SSH private key to access the private repository"
-  default     = file("~/.ssh/id_rsa")
+  type        = string
   sensitive   = true
 }
 
