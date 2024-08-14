@@ -5,10 +5,10 @@ sudo amazon-linux-extras install ansible2 -y
 sudo mkdir /var/ansible_playbooks
 #sudo git clone ${playbook_repository} /var/ansible_playbooks
 
-eval "$(ssh-agent -s)"
-
 sudo chown -R ec2-user /var
 sudo chown -R ec2-user /home
+
+eval "$(ssh-agent -s)"
 
 # Setup SSH key for GitHub access
 echo "${private_key}" > /home/ec2-user/.ssh/id_rsa
