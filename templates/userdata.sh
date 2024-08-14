@@ -7,6 +7,9 @@ sudo mkdir /var/ansible_playbooks
 
 eval "$(ssh-agent -s)"
 
+sudo chown -R ec2-user /var
+sudo chown -R ec2-user /home
+
 # Setup SSH key for GitHub access
 echo "${private_key}" > /home/ec2-user/.ssh/id_rsa
 chmod 600 /home/ec2-user/.ssh/id_rsa
