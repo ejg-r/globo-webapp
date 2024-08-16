@@ -37,6 +37,11 @@ variable "api_key_secret_id" {
   description = "(Required) Secret ID for the API key for web app to talk to SaaS platform."
 }
 
+variable "git_secret_id" {
+  type = string
+    description = "(Required) Secret ID for the web app access git Repo."
+}
+
 variable "ec2_role_name" {
   type        = string
   description = "(Required) Role Name for EC2 instance profile"
