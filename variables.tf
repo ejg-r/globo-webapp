@@ -38,8 +38,8 @@ variable "api_key_secret_id" {
 }
 
 variable "git_secret_id" {
-  type = string
-    description = "(Required) Secret ID for the web app access git Repo."
+  type        = string
+  description = "(Required) Secret ID for the web app access git Repo."
 }
 
 variable "ec2_role_name" {
