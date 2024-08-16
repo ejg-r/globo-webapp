@@ -35,8 +35,6 @@ resource "aws_vpc_security_group_ingress_rule" "webapp_https_inbound" {
 resource "aws_vpc_security_group_egress_rule" "webapp_outbound" {
   security_group_id = aws_security_group.webapp_sg.id
 
-  from_port   = 0
-  to_port     = 0
   ip_protocol = "-1"
   cidr_ipv4   = "0.0.0.0/0"
 
