@@ -5,8 +5,8 @@ sudo amazon-linux-extras install ansible2 -y
 sudo mkdir /var/ansible_playbooks
 
 
-git_secret_id_temp= aws secretsmanager get-secret-value --secret-id "${git_secret_id}" --region us-east-1 --query SecretString --output text
-repo_url="https://$(git_secret_id_temp)/${playbook_repository}"
+$git_secret_id_temp= aws secretsmanager get-secret-value --secret-id "${git_secret_id}" --region us-east-1 --query SecretString --output text
+$repo_url="https://$(git_secret_id_temp)/${playbook_repository}"
 
 
 sudo git clone $(repo_url) /var/ansible_playbooks
