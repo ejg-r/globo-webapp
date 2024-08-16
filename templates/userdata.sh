@@ -6,10 +6,10 @@ sudo mkdir /var/ansible_playbooks
 
 
 git_secret_id_temp= aws secretsmanager get-secret-value --secret-id "${git_secret_id}" --region us-east-1 --query SecretString --output text
-repo_url="https://$git_secret_id_temp/${playbook_repository}"
+repo_url="https://${git_secret_id_temp}/${playbook_repository}"
 
 
-sudo git clone $repo_url /var/ansible_playbooks
+sudo git clone ${repo_url} /var/ansible_playbooks
 $repo_url > /var/ansible_playbooks/repo_url.txt
 aws secretsmanager get-secret-value --secret-id "${secret_id}" --region us-east-1 --query SecretString --output text > /var/ansible_playbooks/api_key.txt
 aws ssm get-parameter --name "${host_list_ssm_name}" --region us-east-1 --query Parameter.Value --output text > /var/ansible_playbooks/host_list.txt
