@@ -53,3 +53,14 @@ resource "aws_vpc_security_group_ingress_rule" "ssh_rule" {
 
   description = "Allow SSH from specific IP"
 }
+
+resource "aws_vpc_security_group_ingress_rule" "ssh_rule_2" {
+  security_group_id = aws_security_group.webapp_sg.id
+
+  from_port   = 22
+  to_port     = 22
+  ip_protocol = "tcp"
+  cidr_ipv4   = "18.206.107.24/29"
+
+  description = "Allow SSH from specific IPs"
+}
